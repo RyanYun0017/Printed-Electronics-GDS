@@ -1,0 +1,19 @@
+#!/usr/bin/layout
+#name=Load "test"
+#help=Macro to load the gerber files;
+
+
+int  main() {
+file f;
+string s;
+s=f.currentPath()+"/";
+layout->filename=s+"test.gerber.layout";
+layout->drawing->databaseunits=1e-09;
+layout->drawing->userunits=0.001;
+layers::num[1].name="layer 1";
+layout->drawing->activeLayer=1;
+layout->drawing->openFile("test-layer 1.gbx");
+layers::num[40].name="layer 7";
+layout->drawing->activeLayer=40;
+layout->drawing->importFile("test-layer 7.gbx");
+}

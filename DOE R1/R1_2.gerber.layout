@@ -1,0 +1,22 @@
+#!/usr/bin/layout
+#name=Load "R1_2"
+#help=Macro to load the gerber files;
+
+
+int  main() {
+file f;
+string s;
+s=f.currentPath()+"/";
+layout->filename=s+"R1_2.gerber.layout";
+layout->drawing->databaseunits=1e-09;
+layout->drawing->userunits=0.001;
+layers::num[1].name="layer 1";
+layout->drawing->activeLayer=1;
+layout->drawing->openFile("R1_2-layer 1.gbx");
+layers::num[5].name="board";
+layout->drawing->activeLayer=5;
+layout->drawing->importFile("R1_2-board.gbx");
+layers::num[15].name="device concector1";
+layout->drawing->activeLayer=15;
+layout->drawing->importFile("R1_2-device concector1.gbx");
+}
